@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Rasoi - Modern Kitchen Companion</title>
+    <!-- Font Awesome (fixed URL) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Local CSS (Flask syntax) -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <i class="fas fa-utensils"></i>
+                    <span>Rasoi</span>
+                </div>
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Recipes</a></li>
+                    <li><a href="#">Categories</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="search-bar">
+            <input type="text" id="ingredients-input" placeholder="What ingredients do you have? (e.g., chicken, potatoes, tomatoes)">
+            <button id="search-button"><i class="fas fa-search"></i> Create Recipe</button>
+        </div>
+
+        <section class="hero" id="recipe-display">
+            <div class="hero-content">
+                <h1>Discover Culinary Delights</h1>
+                <p>Find the perfect recipe for every occasion, skill level, and dietary need</p>
+                <a href="#" class="btn">Explore Recipes</a>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-title">Recipe Categories</h2>
+            <div class="categories">
+                <div class="category-card">
+                    <div class="category-img">
+                        <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Vegetarian">
+                    </div>
+                    <div class="category-info">
+                        <h3>Vegetarian</h3>
+                        <p>120+ recipes</p>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <div class="category-img">
+                        <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Healthy">
+                    </div>
+                    <div class="category-info">
+                        <h3>Healthy</h3>
+                        <p>85+ recipes</p>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <div class="category-img">
+                        <img src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Quick Meals">
+                    </div>
+                    <div class="category-info">
+                        <h3>Quick Meals</h3>
+                        <p>65+ recipes</p>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <div class="category-img">
+                        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Desserts">
+                    </div>
+                    <div class="category-info">
+                        <h3>Desserts</h3>
+                        <p>150+ recipes</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-title">Popular Recipes</h2>
+            <div class="recipes">
+                <div class="recipe-card">
+                    <div class="recipe-img">
+                        <img src="https://images.unsplash.com/photo-1547592180-85f173990554?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Pasta Carbonara">
+                        <div class="recipe-time">
+                            <i class="far fa-clock"></i> 25 mins
+                        </div>
+                    </div>
+                    <div class="recipe-info">
+                        <h3>Pasta Carbonara</h3>
+                        <div class="recipe-meta">
+                            <span class="recipe-difficulty easy">Easy</span>
+                            <span class="recipe-rating">
+                                <i class="fas fa-star"></i> 4.8
+                            </span>
+                        </div>
+                        <p class="recipe-desc">Classic Italian pasta with eggs, cheese, pancetta, and black pepper.</p>
+                        <a href="#" class="recipe-link">View Recipe <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="recipe-card">
+                    <div class="recipe-img">
+                        <img src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Chicken Tikka Masala">
+                        <div class="recipe-time">
+                            <i class="far fa-clock"></i> 45 mins
+                        </div>
+                    </div>
+                    <div class="recipe-info">
+                        <h3>Chicken Tikka Masala</h3>
+                        <div class="recipe-meta">
+                            <span class="recipe-difficulty medium">Medium</span>
+                            <span class="recipe-rating">
+                                <i class="fas fa-star"></i> 4.9
+                            </span>
+                        </div>
+                        <p class="recipe-desc">Creamy, spiced Indian curry with grilled chicken chunks.</p>
+                        <a href="#" class="recipe-link">View Recipe <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="recipe-card">
+                    <div class="recipe-img">
+                        <img src="https://images.unsplash.com/photo-1484723091739-30a097e8f929?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Avocado Toast">
+                        <div class="recipe-time">
+                            <i class="far fa-clock"></i> 10 mins
+                        </div>
+                    </div>
+                    <div class="recipe-info">
+                        <h3>Avocado Toast</h3>
+                        <div class="recipe-meta">
+                            <span class="recipe-difficulty easy">Easy</span>
+                            <span class="recipe-rating">
+                                <i class="fas fa-star"></i> 4.7
+                            </span>
+                        </div>
+                        <p class="recipe-desc">Simple, healthy breakfast with smashed avocado on toasted bread.</p>
+                        <a href="#" class="recipe-link">View Recipe <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="newsletter">
+            <div class="container">
+                <h2>Subscribe to Our Newsletter</h2>
+                <p>Get weekly recipe inspiration, cooking tips, and exclusive offers delivered straight to your inbox.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your email address">
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <div class="ai-assistant">
+        <button class="ai-button">
+            <i class="fas fa-robot"></i>
+        </button>
+        <div class="ai-chat-container">
+            <div class="ai-chat-header">
+                <h3>Rasoi AI Chef</h3>
+                <button class="ai-close-btn"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="ai-chat-messages">
+                <div class="ai-message ai-bot-message">
+                    <div class="ai-message-content">
+                        Hi there! Tell me what ingredients you have, and I'll suggest recipes!
+                    </div>
+                </div>
+            </div>
+            <div class="ai-chat-input">
+                <input type="text" placeholder="Ask for a recipe..." id="ai-chat-input">
+                <button class="ai-voice-btn" title="Voice search"><i class="fas fa-microphone"></i></button>
+                <button class="ai-send-btn" title="Send"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Rasoi</h3>
+                    <p>Your modern kitchen companion for discovering and creating delicious recipes.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Recipes</a></li>
+                        <li><a href="#">Categories</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Categories</h3>
+                    <ul>
+                        <li><a href="#">Vegetarian</a></li>
+                        <li><a href="#">Vegan</a></li>
+                        <li><a href="#">Gluten-Free</a></li>
+                        <li><a href="#">Quick Meals</a></li>
+                        <li><a href="#">Desserts</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Food Street, Kitchen City</li>
+                        <li><i class="fas fa-phone"></i> +1 234 567 890</li>
+                        <li><i class="fas fa-envelope"></i> hello@rasoi.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>Thanks for visiting the website</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+
+        
+    // Mobile Menu Toggle
+    document.querySelector('.menu-toggle').addEventListener('click', function() {
+        document.querySelector('.nav-links').classList.toggle('active');
+    });
+
+    // Search Functionality - Modified for AI Rasoi
+    document.querySelector('.search-bar button').addEventListener('click', async function() {
+        const ingredients = document.querySelector('.search-bar input').value;
+        
+        if (!ingredients.trim()) {
+            alert("Please enter some ingredients!");
+            return;
+        }
+
+        // Show loading state
+        const searchBtn = this;
+        searchBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Generating...';
+        searchBtn.disabled = true;
+
+        try {
+            // Call your backend API
+            const response = await fetch('/generate_recipe', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ ingredients: ingredients })
+            });
+            
+            const data = await response.json();
+            
+            if (data.error) {
+                throw new Error(data.error);
+            }
+            
+            // Display the recipe in the hero section
+            const hero = document.querySelector('.hero');
+            hero.innerHTML = `
+                <div class="hero-content">
+                    <h1>Your AI-Generated Recipe</h1>
+                    <div class="recipe-output">
+                        ${data.recipe.replace(/\n/g, '<br>')}
+                    </div>
+                    <button class="btn" onclick="location.reload()">
+                        <i class="fas fa-undo"></i> Search Again
+                    </button>
+                </div>
+            `;
+            
+        } catch (error) {
+            alert("Error: " + error.message);
+        } finally {
+            // Reset button
+            searchBtn.innerHTML = '<i class="fas fa-search"></i> Search';
+            searchBtn.disabled = false;
+        }
+    });
+
+    // Newsletter Form Submission
+    document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const email = this.querySelector('input').value;
+        if (email.trim() !== '' && email.includes('@')) {
+            alert(`Thank you for subscribing with ${email}!`);
+            this.querySelector('input').value = '';
+        } else {
+            alert('Please enter a valid email address.');
+        }
+    });
+
+    // Smooth Scrolling for Anchor Links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    // Recipe Card Hover Effect Enhancement
+    document.querySelectorAll('.recipe-card').forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.querySelector('.recipe-img img').style.transform = 'scale(1.05)';
+        });
+        card.addEventListener('mouseleave', function() {
+            this.querySelector('.recipe-img img').style.transform = 'scale(1)';
+        });
+    });
+
+    // AI Assistant Functionality - Modified for Recipe Generation
+    const aiButton = document.querySelector('.ai-button');
+    const aiChatContainer = document.querySelector('.ai-chat-container');
+    const aiCloseBtn = document.querySelector('.ai-close-btn');
+    const aiSendBtn = document.querySelector('.ai-send-btn');
+    const aiVoiceBtn = document.querySelector('.ai-voice-btn');
+    const aiChatInput = document.querySelector('#ai-chat-input');
+    const aiChatMessages = document.querySelector('.ai-chat-messages');
+
+    let recognition;
+    let isListening = false;
+
+    // Initialize AI Assistant
+    function initAIAssistant() {
+        // Toggle chat window
+        aiButton.addEventListener('click', () => {
+            aiChatContainer.classList.toggle('active');
+        });
+
+        aiCloseBtn.addEventListener('click', () => {
+            aiChatContainer.classList.remove('active');
+        });
+
+        // Send message function - Now calls your backend
+        async function sendMessage() {
+            const message = aiChatInput.value.trim();
+            if (message === '') return;
+            
+            addMessage(message, 'user');
+            aiChatInput.value = '';
+            
+            showTypingIndicator();
+            
+            try {
+                // Call backend API for AI response
+                const response = await fetch('/generate_recipe', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ ingredients: message })
+                });
+                
+                const data = await response.json();
+                
+                if (data.error) {
+                    throw new Error(data.error);
+                }
+                
+                removeTypingIndicator();
+                addMessage(data.recipe, 'bot');
+                
+            } catch (error) {
+                removeTypingIndicator();
+                addMessage("Sorry, I couldn't generate a recipe. Please try again.", 'bot');
+            }
+        }
+
+        // Handle enter key press
+        aiChatInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                sendMessage();
+            } 
+        });
+
+        // Handle send button click
+        aiSendBtn.addEventListener('click', sendMessage);
+
+        // Initialize voice recognition
+        initVoiceRecognition();
+    }
+
+    // Initialize voice recognition
+    function initVoiceRecognition() {
+        if ('webkitSpeechRecognition' in window) {
+            recognition = new webkitSpeechRecognition();
+            recognition.continuous = false;
+            recognition.interimResults = false;
+            recognition.lang = 'en-US';
+
+            recognition.onstart = function() {
+                isListening = true;
+                aiVoiceBtn.classList.add('listening');
+                addMessage("Listening... Tell me your ingredients", 'bot');
+            };
+
+            recognition.onerror = function(event) {
+                isListening = false;
+                aiVoiceBtn.classList.remove('listening');
+                if (event.error === 'not-allowed') {
+                    addMessage("Please allow microphone access to use voice commands", 'bot');
+                } else {
+                    addMessage("Voice recognition error. Please try again", 'bot');
+                }
+            };
+
+            recognition.onend = function() {
+                isListening = false;
+                aiVoiceBtn.classList.remove('listening');
+            };
+
+            recognition.onresult = function(event) {
+                const transcript = event.results[0][0].transcript;
+                aiChatInput.value = transcript;
+                sendMessage();
+            };
+
+            aiVoiceBtn.addEventListener('click', function() {
+                if (!isListening) {
+                    if (!recognition) {
+                        initVoiceRecognition();
+                    }
+                    try {
+                        recognition.start();
+                    } catch (error) {
+                        addMessage("Couldn't start voice recognition. Please try again.", 'bot');
+                    }
+                } else {
+                    recognition.stop();
+                }
+            });
+        } else {
+            // Browser doesn't support speech recognition
+            aiVoiceBtn.style.display = 'none';
+            addMessage("Your browser doesn't support voice search. Try Chrome or Edge.", 'bot');
+        } 
+    }
+
+    // Add message to chat
+    function addMessage(content, sender) {
+        const messageDiv = document.createElement('div');
+        messageDiv.classList.add('ai-message', `ai-${sender}-message`);
+        
+        const contentDiv = document.createElement('div');
+        contentDiv.classList.add('ai-message-content');
+        
+        if (typeof content === 'string') {
+            contentDiv.innerHTML = content.replace(/\n/g, '<br>');
+        } else {
+            contentDiv.appendChild(content);
+        }
+        
+        messageDiv.appendChild(contentDiv);
+        aiChatMessages.appendChild(messageDiv);
+        aiChatMessages.scrollTop = aiChatMessages.scrollHeight;
+    }
+
+    // Show typing indicator
+    function showTypingIndicator() {
+        const typingDiv = document.createElement('div');
+        typingDiv.classList.add('ai-typing');
+        typingDiv.innerHTML = `
+            <span></span>
+            <span></span>
+            <span></span>
+        `;
+        aiChatMessages.appendChild(typingDiv);
+        aiChatMessages.scrollTop = aiChatMessages.scrollHeight;
+    }
+
+    // Remove typing indicator
+    function removeTypingIndicator() {
+        const typingIndicator = document.querySelector('.ai-typing');
+        if (typingIndicator) {
+            typingIndicator.remove();
+        }
+    }
+
+    // Initialize the AI Assistant when DOM is loaded
+    document.addEventListener('DOMContentLoaded', function() {
+        initAIAssistant();
+        
+        // Add sample greeting message
+        setTimeout(() => {
+            addMessage("Hello! I'm your AI Rasoi assistant. Tell me what ingredients you have, and I'll suggest recipes!", 'bot');
+        }, 500);
+    });
+
+    </script>>
+</body>
+</html>
